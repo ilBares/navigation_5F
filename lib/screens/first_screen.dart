@@ -6,11 +6,13 @@ class FirstScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Lista di nomi che useremo per la ListView
     List names = [
       'Marco',
       'Luca',
       'Piero'
     ];
+
     return Scaffold(
       body: SafeArea(
         child: ListView.builder(
@@ -24,7 +26,12 @@ class FirstScreen extends StatelessWidget {
   }
 
   Widget _buildItem(BuildContext context, String name) {
+    // il "GestureDetector" è un Widget che serve a "rilavare" tap sugli
+    // elementi della nostra lista
     return GestureDetector(
+      // quando viene cliccato l'elemento della lista invoca il Navigator
+      // '/second' indica il nome del Widget da aprire in base alle routes
+      // presenti del file "main.dart"
       onTap: () => Navigator.pushNamed(context, '/second'),
       child: CustomCard(
         padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 20),
